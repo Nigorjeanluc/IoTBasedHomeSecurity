@@ -49,7 +49,7 @@
             </li>
             <li class="nav-item">
               <!--<a class="nav-link js-scroll-trigger" href="#contact">REGISTER</a>-->
-              <a class="nav-link js-scroll-trigger" href="{{ route('register') }}">Apply Now</a>
+              <a class="nav-link js-scroll-trigger" href="#">Apply Now</a>
             </li>
           </ul>
         </div>

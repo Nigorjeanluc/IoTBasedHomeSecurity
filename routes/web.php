@@ -23,6 +23,7 @@ Route::get('/flows', 'HomeController@flow')->name('flows');
 Route::get('/room1', 'HomeController@getRoom1')->name('room1');
 Route::get('/room2', 'HomeController@getRoom2')->name('room2');
 Route::get('/room3', 'HomeController@getRoom3')->name('room3');
+Route::resource('/sensors', 'SensorController', ['except' => ['show', 'update', 'edit']]);
 
 Route::prefix('admin')->group(function() {
     Route::get('/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
