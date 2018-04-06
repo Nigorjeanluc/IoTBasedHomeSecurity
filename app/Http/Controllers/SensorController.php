@@ -111,7 +111,7 @@ class SensorController extends Controller
     {
         //
     }
-    public function storing(Request $request)
+    public function getStorings(Request $request)
     {
         // validate the data
         $this->validate($request, array(
