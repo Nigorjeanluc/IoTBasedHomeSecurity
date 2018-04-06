@@ -111,4 +111,36 @@ class SensorController extends Controller
     {
         //
     }
+    public function storing(Request $request)
+    {
+        // validate the data
+        $this->validate($request, array(
+            'lightSensor'          => 'required|integer',
+            'flameSensor1'           => 'required|integer',
+            'flameSensor2'    => 'required|integer',
+            'flameSensor3'    => 'required|integer',
+            'flameSensor4'           => 'required|integer',
+            'celcius' => 'required|float',
+            'fahrenheit' => 'required|float'
+        ));
+
+        // store in the database
+        $sensor = new Sensor;
+
+        $sensor->lightSensor = $request->lightSensor;
+        $sensor->flameSensor1 = $request->flameSensor1;
+        $sensor->flameSensor2 = $request->flameSensor2;
+        $sensor->flameSensor3 = $request->flameSensor3;
+        $sensor->flameSensor4 = $request->flameSensor4;
+        $sensor->celcius = $request->celcius;
+        $sensor->fahrenheit = $request->fahrenheit;
+
+        $sensor->save();
+        
+        $request->session()->flash('success', 'The sensors data was successfully saved!');
+        
+        // redirect to another page
+        
+        return redirect()->route('sensors.index');
+    }
 }
